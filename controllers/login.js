@@ -24,6 +24,7 @@ function($scope, $state, $modalInstance, $window, Auth ) {
 		Auth.login(credentials, function(user) {
 			//success function
 			$modalInstance.close();
+			$state.go('home');
 		}, function(err) {
 			console.log("error");
 			$scope.error = true;
