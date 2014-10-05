@@ -29,12 +29,19 @@ var loginApp = angular.module('loginApp', ['ui.router', 'ui.bootstrap'])
 	notAuthorized : 'auth-not-authorized'
 })
 ```
-**(2) Auth Service:** All following functions are implemented in auth.js. The $http service is used to communicate with the server for the authentication procedures. Also contains functions on authorization, that is if the user is allowed to perform a certain action.
+**(2) Auth Service:** All following functions are implemented in auth.js service. The $http service is used to communicate with the server for the authentication procedures. Also contains functions on authorization, that is if the user is allowed to perform a certain action.
 ```
-authService.login()
-authService.isAuthenticated()
-authService.isAuthorized()
-authService.logout()
+angular.module('loginApp')
+.factory('Auth', [ '$http', '$rootScope', '$window', 'Session', 'AUTH_EVENTS', 
+function($http, $rootScope, $window, Session, AUTH_EVENTS) {
+
+authService.login() = [...]
+authService.isAuthenticated() = [...]
+authService.isAuthorized() = [...]
+authService.logout() = [...]
+return authService;
+return authService;
+} ]);
 ```
 **(3) Session:** A singleton to keep user data. The implementation here depends on you. 
 ```
