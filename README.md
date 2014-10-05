@@ -11,7 +11,7 @@ This code was created to sum all authentication suggestions I gathered from my r
 
 3) http://www.frederiknakstad.com/2013/01/21/authentication-in-single-page-applications-with-angular-js/
 
-Logic goes like this:
+To store the data locally for the user to be able to refresh the page I use $window.sessionStorage, which is provided by every browser(even IE9!) and is erased when the browser is closed. Logic goes like this:
 
 **(1) app.js:** Creation of authentication constants on app definition
 ```
