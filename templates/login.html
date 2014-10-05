@@ -1,0 +1,60 @@
+<div id="loginbox" style="margin-top: 10px;"
+	class="mainbox col-md-12">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<div class="panel-title">Login</div>
+			<div
+				style="float: right; font-size: 80%; position: relative; top: -10px">
+				<a href="#">Forgot your password?</a>
+			</div>
+		</div>
+		<div style="padding-top: 30px" class="panel-body">
+			<form name="loginForm" class="form-horizontal" method="post"
+				ng-submit="submit()" novalidate form-autofill-fix>
+				<table class="table" width="100%">
+					<tr>
+						<td><p>Either: <br>user: admin<br> pass: admin</p></td>
+						<td><p>Or: <br>user: editor<br> pass: editor</p></td>
+						<td><p>Or: <br>user: guest<br> pass: guest</p></td>
+					</tr>
+				</table>
+				
+				<div style="margin-top: 25px" class="input-group">
+					<span class="input-group-addon"><i
+						class="glyphicon glyphicon-user"></i></span> <input type="text"
+						class="form-control" name="username"
+						ng-model="credentials.username" placeholder="Username"
+						required />
+				</div>
+				<div class="error"
+					ng-show="(submitted  || loginForm.username.$dirty)  && loginForm.username.$invalid">
+					<p class="error" ng-show="loginForm.username.$error.required">'Username'
+						is mandatory</p>
+				</div>
+				<div style="margin-top: 25px" class="input-group">
+					<span class="input-group-addon"><i
+						class="glyphicon glyphicon-lock"></i></span> <input type="password"
+						class="form-control" name="password"
+						ng-model="credentials.password" placeholder="Password" required />
+				</div>
+				<div class="error"
+					ng-show="(submitted  || loginForm.password.$dirty)  && loginForm.password.$invalid">
+					<p class="error" ng-show="loginForm.password.$error.required">'Password'
+						is mandatory</p>
+				</div>
+				<div style="margin-top: 10px" class="form-group">
+					<!-- Button -->
+
+					<div class="col-sm-12 controls">
+						<input type="submit" id="btn-login" class="btn btn-success"
+							value="Login" />
+					</div>
+
+				</div>
+				<p ng-show="error" class="error">The password you entered is incorrect.
+				 Please try again (make sure your caps lock is off).</p>
+
+			</form>
+		</div>
+	</div>
+</div>

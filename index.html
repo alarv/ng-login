@@ -1,0 +1,62 @@
+<!doctype html>
+<html ng-app="loginApp">
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.min.js"></script>
+<title>Login App</title>
+<link rel="stylesheet" href="css/custom.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="ParentController">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">ng-login</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li ng-class="getClass('state1')"><a ui-sref="state1">state1</a></li>
+					<li ng-class="getClass('state2')"><a ui-sref="state2">state2</a></li>
+					<li ng-class="getClass('adminState')"><a ui-sref="adminState">Admin Area</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" ng-click="logout()">Log Out</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	
+	<div class="container">
+		<div ng-if="currentUser"><b>Welcome, {{ currentUser.username }}</b></div>
+		<div ui-view></div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="js/libs/angular-ui-router.min.js"></script>
+	<script src="js/libs/ui-bootstrap-tpls-0.11.2.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/routing.js"></script>
+	<script src="js/globalFunctions.js"></script>
+
+	<!--FACTORY -->
+	<script src="services/authInterceptor.js"></script>
+	
+
+	<!--CONTROLLERS -->
+	<script src="controllers/parentController.js"></script>
+	<script src="controllers/login.js"></script>
+
+	<!--SERVICES -->
+	<script src="services/auth.js"></script>
+	<script src="services/session.js"></script>
+
+</body>
+</html>
