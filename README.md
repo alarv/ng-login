@@ -39,7 +39,7 @@ authService.login() = [...]
 authService.isAuthenticated() = [...]
 authService.isAuthorized() = [...]
 authService.logout() = [...]
-return authService;
+
 return authService;
 } ]);
 ```
