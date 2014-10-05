@@ -1,7 +1,7 @@
 ng-login
 ========
 
-Plunker: http://run.plnkr.co/5q71gln8v6PqBBn3/#/
+Plunker: http://embed.plnkr.co/Mvrte4
 
 This code was created to sum all authentication suggestions I gathered from my research. I also added the $modal service of UI Bootstrap, for the login procedure to be smoother for the end-user. A login/authentication logic on an Angular JS application is provided, along with authorization per route given some user roles. It is mainly based on those 3 articles (mostly the 1st), with my addition of a modal login window, using the UI Bootstrap $modal service: 
 
