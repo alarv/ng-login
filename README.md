@@ -114,5 +114,5 @@ function($rootScope, $q, Session, AUTH_EVENTS) {
 ```
 
 **P.S.** A bug with the form data autofill as stated on the 1st article can be easily avoided by adding the directive that is included in directives.js. 
-
+
 **P.S.2** This code can be easily tweaked by the user, to allow different routes to be seen, or display content that was not meant to be displayed. The logic MUST be implemented server-side, this is just a way to show things properly on your ng-app.
