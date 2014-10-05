@@ -1,7 +1,7 @@
 ng-login
 ========
 
-This code provides a login/authentication logic on an Angular JS application, along with authorization per route given some user roles. It is mainly based on those 3 articles (mostly the 1st), with my addition of a modal login window, using the UI Bootstrap $modal service: 
+This code was created to sum all authentication suggestions I gathered from my research. I also added the $modal service of UI Bootstrap, for the login procedure to be smoother for the end-user. A login/authentication logic on an Angular JS application is provided, along with authorization per route given some user roles. It is mainly based on those 3 articles (mostly the 1st), with my addition of a modal login window, using the UI Bootstrap $modal service: 
 
 1) https://medium.com/opinionated-angularjs/techniques-for-authentication-in-angularjs-applications-7bbf0346acec
 
