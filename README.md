@@ -14,7 +14,7 @@ This code was created to sum all authentication suggestions I gathered from my r
 To store the data locally for the user to be able to refresh the page I use $window.sessionStorage, which is provided by every browser(even IE9!) and is erased when the browser is closed. Logic goes like this:
 
 **(1) app.js:** Creation of authentication constants on app definition
-```
+```javascript
 var loginApp = angular.module('loginApp', ['ui.router', 'ui.bootstrap'])
 /*Constants regarding user login defined here*/
 .constant('USER_ROLES', {
@@ -32,7 +32,7 @@ var loginApp = angular.module('loginApp', ['ui.router', 'ui.bootstrap'])
 })
 ```
 **(2) Auth Service:** All following functions are implemented in auth.js service. The $http service is used to communicate with the server for the authentication procedures. Also contains functions on authorization, that is if the user is allowed to perform a certain action.
-```
+```javascript
 angular.module('loginApp')
 .factory('Auth', [ '$http', '$rootScope', '$window', 'Session', 'AUTH_EVENTS', 
 function($http, $rootScope, $window, Session, AUTH_EVENTS) {
@@ -46,7 +46,7 @@ return authService;
 } ]);
 ```
 **(3) Session:** A singleton to keep user data. The implementation here depends on you. 
-```
+```javascript
 angular.module('loginApp').service('Session', function($rootScope, USER_ROLES) {
 
 	this.create = function(user) {
@@ -61,7 +61,7 @@ angular.module('loginApp').service('Session', function($rootScope, USER_ROLES) {
 });
 ```
 **(4) Parent controller:** Consider this as the "main" function of your application, all controllers inherit from this controller, and it's the backbone of the authentication of this app. 
-```
+```html
 <body ng-controller="ParentController">
 [...]
 </body>
@@ -69,7 +69,7 @@ angular.module('loginApp').service('Session', function($rootScope, USER_ROLES) {
 **(5) Access control:** To deny access on certain routes 2 steps have to be implemented:
 
 a) Add data of the roles allowed to access each route, on ui router's $stateProvider service as can be seen below (same can work for ngRoute). 
-```
+```javascript
 .config(function ($stateProvider, USER_ROLES) {
   $stateProvider.state('dashboard', {
     url: '/dashboard',
@@ -81,7 +81,7 @@ a) Add data of the roles allowed to access each route, on ui router's $stateProv
 })
 ```
 b) On $rootScope.$on('$stateChangeStart') add the function to prevent state change if the user is not authorized. 
-```
+```javascript
 $rootScope.$on('$stateChangeStart', function (event, next) {
     var authorizedRoles = next.data.authorizedRoles;
     if (!Auth.isAuthorized(authorizedRoles)) {
@@ -97,7 +97,7 @@ $rootScope.$on('$stateChangeStart', function (event, next) {
 });
 ```
 **(6) Auth interceptor:** This is implemented, but can't be checked on the scope of this code. After each $http request, this interceptor checks the status code, if one of the below is returned, then it broadcasts an event to force the user to log-in again.
-```
+```javascript
 angular.module('loginApp')
 .factory('AuthInterceptor', [ '$rootScope', '$q', 'Session', 'AUTH_EVENTS',
 function($rootScope, $q, Session, AUTH_EVENTS) {
